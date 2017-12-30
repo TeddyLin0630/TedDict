@@ -1,0 +1,7 @@
+
+Osquid:S2209"5Change this instance-reference to a static reference.(ðÄ”Šÿÿÿÿÿ
+Zsquid:S2259"EA "NullPointerException" could be thrown; "keyword" is nullable here.(à˜ÑŽ
+Dsquid:S00108")Either remove or fill this block of code.(®¤¯§ýÿÿÿÿ
+=squid:S1185"(Remove this method to simply inherit it.(Ù«µ§
+=squid:S1148"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ
+csquid:MaximumInheritanceDepth"<This class has 7 parents which is greater than 5 authorized.(²Ú±Ž
