@@ -9,4 +9,5 @@ public class Constants {
     public static final String QUIELET_USER_NAME = "yuhsiung_lin";
     public static final String NEW_SET_TITLE = " Ted Dictionary";
     public static final String QUIZLET_API_BASE = "https://api.quizlet.com/";
+    public static final long ACCESS_TOKEN_EXPIRE_TIME = 1800000L;
 }

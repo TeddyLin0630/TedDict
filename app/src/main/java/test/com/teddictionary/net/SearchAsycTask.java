@@ -44,7 +44,7 @@ public class SearchAsycTask extends AsyncTask<String, Void, Boolean> {
 
                     StringBuilder examples = new StringBuilder();
                     for (Element e2 : e1.select("vi")) {
-                        examples.append("-" + e2.text() + "\n");
+                        examples.append("-" + e2.text() + "\n\n");
                     }
                     definition.setExample(examples.toString());
                     definitions.add(definition);

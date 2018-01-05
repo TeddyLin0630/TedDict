@@ -1,6 +1,7 @@
 package test.com.teddictionary.data;
 
-import android.app.Application;
+import android.content.Context;
+import android.content.SharedPreferences;
 
 import dagger.Module;
 import dagger.Provides;
@@ -11,14 +12,24 @@ import dagger.Provides;
 
 @Module
 public class AppModule {
-    Application mApplication;
+    public static String ACCESS_TOKEN = "access-token";
+    public static String GEN_ACCESS_TOKEN_TIME = "access-token-time";
+    public static String TED_DICT_PREF = "ted_dict_pref";
 
-    public AppModule(Application application) {
-        mApplication = application;
+    private Context mContext;
+
+    public AppModule(Context context) {
+        this.mContext = context;
     }
 
     @Provides
-    Application providesApplication() {
-        return mApplication;
+    public SharedPreferences.Editor provideSharedPreferencesEditor() {
+        SharedPreferences.Editor editor = mContext.getSharedPreferences(TED_DICT_PREF, Context.MODE_PRIVATE).edit();
+        return editor;
+    }
+
+    @Provides
+    public SharedPreferences provideSharedPreferences() {
+        return mContext.getSharedPreferences(TED_DICT_PREF, Context.MODE_PRIVATE);
     }
 }

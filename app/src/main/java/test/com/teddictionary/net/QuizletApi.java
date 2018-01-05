@@ -14,8 +14,11 @@ import retrofit2.http.Path;
 import retrofit2.http.Query;
 import test.com.teddictionary.Model.QuizletAddSetBody;
 import test.com.teddictionary.Model.QuizletAddSetResponse;
+import test.com.teddictionary.Model.QuizletAddTermResponse;
 import test.com.teddictionary.Model.QuizletSearchSets;
 import test.com.teddictionary.Model.QuizletSet;
+import test.com.teddictionary.Model.QuizletTerm;
+import test.com.teddictionary.Model.QuizletUserSetResponse;
 import test.com.teddictionary.data.QuizletToken;
 
 /**
@@ -26,12 +29,22 @@ public interface QuizletApi {
     @GET("2.0/users/{username}/sets?client_id=ZuyJXZaNnv&whitespace=1")
     Call<List<QuizletSet>> listSets(@Path("username") String username);
 
+    @GET("2.0/users/{username}/sets?client_id=ZuyJXZaNnv&whitespace=1")
+    Call<List<QuizletUserSetResponse>> searchUserSets(@Path("username") String username,
+                                                @Query("q") String keyword,
+                                                @Query("modified_since") String timestamp);
+
     @GET("2.0/search/sets?client_id=ZuyJXZaNnv&whitespace=1")
     Call<QuizletSearchSets> searchSets(@Query("q") String keyword, @Query("creator") String username);
 
     @POST("2.0/sets")
     Call<QuizletAddSetResponse> addSet(@Header("Authorization") String accessToken,
                                        @Body QuizletAddSetBody quizletAddSetBody);
+
+    @POST("2.0/sets/{setId}/terms")
+    Call<QuizletAddTermResponse> addTerm(@Path("setId") int setId,
+                                         @Header("Authorization") String accessToken,
+                                         @Body QuizletTerm quizletAddSetBody);
 
     @Headers("Accept: application/json")
     @POST("/oauth/token")
