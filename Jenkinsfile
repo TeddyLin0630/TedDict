@@ -4,6 +4,8 @@ pipeline {
         stage('build') {
             steps {
                 sh "./gradlew clean assembleDebug"
+                
+                cucumberSlackSend channel:'@teddylin'
             }
         }
     }
