@@ -3,7 +3,13 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                sh 'gradle --version'
+                sh "./gradlew clean assembleDebug"
+            }
+        }
+        
+        post {
+            always {
+                archiveArtifacts artifacts: 'app/build/outputs/apk/debug/*.apk', fingerprint: true
             }
         }
     }
