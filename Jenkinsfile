@@ -5,7 +5,7 @@ pipeline {
             steps {
                 sh "./gradlew clean assembleDebug"
                 
-                cucumberSlackSend channel:'@teddylin'
+                cucumberSlackSend channel:'Teddy Lin'
             }
         }
     }
